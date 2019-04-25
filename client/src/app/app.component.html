@@ -1,0 +1,39 @@
+<section>
+  <header>
+    <h1 id='title' class="alert-danger border-bottom border-dark">
+      Currency Converter
+    </h1>
+  </header>
+</section>
+<hr>
+<div class="container">
+  <div class="row alert-info border border-dark font-weight-bold">
+    <div class="col">
+      Source Amount
+    </div>
+    <div class="col">
+      Source Currency
+    </div>
+    <div class="col">
+      Target Currency
+    </div>
+    <div class="col">
+      Rate
+    </div>
+    <div class="col">
+      Converted Amount
+    </div>
+    <div class="col">
+      Time
+    </div>
+  </div>
+  <app-conversion *ngFor='let c of conversionList'
+    [conversion]="c"
+  >
+  </app-conversion>
+
+</div>
+
+
+
+
