@@ -17,4 +17,10 @@
   <div class="col">
     {{ conversion.timeStamp }}
   </div>
+  <div class="col">
+    <form method='POST' action='/input/delete'>
+      <input type='hidden' name='_id' value='{{ conversion._id}}' />
+      <input type='submit' class="btn btn-dark m-2" value='Delete' />
+    </form>
+  </div>
 </div>
