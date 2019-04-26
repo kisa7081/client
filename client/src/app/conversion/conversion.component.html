@@ -9,7 +9,10 @@
     {{ conversion.targetCurrency }}
   </div>
   <div class="col">
-    {{ conversion.rate }}
+    <form #form="ngForm" (ngSubmit)="updateConversion(form.value)">
+      <input #rate name="rate" class="form-control" [ngModel]="conversion.rate">
+      <button type='submit' class="btn btn-success m-2">Update</button>
+    </form>
   </div>
   <div class="col">
     {{ conversion.convertedAmount }}
@@ -18,9 +21,6 @@
     {{ conversion.timeStamp }}
   </div>
   <div class="col">
-    <form method='POST' action='/input/delete'>
-      <input type='hidden' name='_id' value='{{ conversion._id}}' />
-      <input type='submit' class="btn btn-dark m-2" value='Delete' />
-    </form>
+    <button type='button' class="btn btn-dark m-2 form-control" (click)="deleteConversion()">Delete</button>
   </div>
 </div>

@@ -22,4 +22,10 @@ export class AppComponent {
     });
   }
 
+  handleRefresh(){
+    this.conversionService.listConversions().subscribe((convs) => {
+      this.conversionList = convs;
+    });
+  }
+
 }

@@ -14,4 +14,13 @@ export class ConversionService {
     return this.http.get(this.apiurl + 'api/conv');
   }
 
+  updateConversion(obj : any) {
+    console.log(obj);
+    return this.http.put(this.apiurl + 'api/conv/' + obj._id, obj);
+  }
+
+  deleteConversion(id) {
+    return this.http.delete(this.apiurl + 'api/conv/' + id);
+  }
+
 }

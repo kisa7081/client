@@ -37,6 +37,7 @@
   </div>
   <app-conversion *ngFor='let c of conversionList'
     [conversion]="c"
+    (refreshEvent)="handleRefresh($event)"
   >
   </app-conversion>
 
