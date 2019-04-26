@@ -7,16 +7,16 @@ import { AppComponent } from './app.component';
 import { ConversionComponent } from './conversion/conversion.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ConversionComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        ConversionComponent
+    ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        FormsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

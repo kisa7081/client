@@ -23,4 +23,16 @@ export class ConversionService {
     return this.http.delete(this.apiurl + 'api/conv/' + id);
   }
 
+  getTimestamp() {
+    return this.http.get(this.apiurl + 'api/conv/timestamp');
+  }
+
+  deleteAll() {
+      return this.http.delete(this.apiurl + 'api/conv/deleteAll');
+  }
+
+  refreshRates() {
+      return this.http.get(this.apiurl + 'api/conv/refreshRates');
+  }
+
 }
