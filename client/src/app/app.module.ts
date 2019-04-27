@@ -12,7 +12,7 @@ import {TimestampComponent} from './timestamp/timestamp.component';
 const routes: Routes = [
     {path: '', redirectTo: '/conv', pathMatch: 'full'},
     {path: 'conv', component: ConversionComponent}
-]
+];
 
 @NgModule({
     declarations: [
