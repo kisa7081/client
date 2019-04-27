@@ -1,0 +1,54 @@
+<app-timestamp></app-timestamp>
+<form #newConvForm="ngForm" (ngSubmit)="createConversion(newConvForm)">
+    <div class="container">
+        <div class="row">
+            <div class="col text-right">
+                Enter currency amount*:
+            </div>
+            <div class="col text-left">
+                <input type="number" required #sourceAmount="ngModel" placeholder="Amount" name="sourceAmount" class="form-control"
+                       [(ngModel)]="conversion.sourceAmount">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col text-right">
+                Choose currency*:
+            </div>
+            <div class="col text-left">
+                <select required #sourceAmount="ngModel" name="sourceCurrency" class="form-control"
+                        [(ngModel)]="conversion.sourceCurrency">
+                    <option *ngFor="let c of currencies" [value]="c.value">
+                        {{c.viewValue}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col text-right">
+                Choose currency to convert to*:
+            </div>
+            <div class="col text-left">
+                <select required #targetCurrency="ngModel" name="targetCurrency" class="form-control"
+                        [(ngModel)]="conversion.targetCurrency">
+                    <option *ngFor="let c of currencies; let i = index" [value]="i">
+                        {{c.viewValue}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-right">
+                * Required
+            </div>
+            <div class="col text-left">
+            </div>
+        </div>
+        <br>
+    </div>
+    <div class="alert-warning border-top border-dark">
+        <button type='submit' value='Convert' class="btn btn-info  m-2" [disabled]="!newConvForm.valid">Convert</button>
+        <a href="/" class="btn btn-primary m-2">Cancel</a>
+    </div>
+</form>

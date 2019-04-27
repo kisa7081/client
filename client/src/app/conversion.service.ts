@@ -35,4 +35,12 @@ export class ConversionService {
       return this.http.get(this.apiurl + 'api/conv/refreshRates');
   }
 
+  getCurrencies() {
+      return this.http.get(this.apiurl + 'api/conv/currencies');
+  }
+
+  createConversion(cur: any) {
+      return this.http.post(this.apiurl + 'api/conv/', cur);
+  }
+
 }

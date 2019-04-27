@@ -33,8 +33,11 @@
         </div>
         <div class="col">
             <form #form="ngForm" (ngSubmit)="updateConversion(form.value)">
-                <input #rate name="rate" class="form-control m-2" [ngModel]="conversion.rate">
-                <button type='submit' class="btn btn-success m-2">Update</button>
+                <input type="number" required placeholder="Rate" #rate="ngModel" name="rate" class="form-control m-2" [(ngModel)]="conversion.rate">
+                <button [disabled]="!form.valid" type='submit' class="btn btn-success m-2">Update</button>
+                <div *ngIf="form.invalid && (form.dirty || form.touched)" class="alert alert-danger">
+                    Rate is required and must be numeric.
+                </div>
             </form>
         </div>
         <div class="col">

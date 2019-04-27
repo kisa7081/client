@@ -8,10 +8,12 @@ import {AppComponent} from './app.component';
 import {ConversionComponent} from './conversion/conversion.component';
 import {ConversionListComponent} from './conversion-list/conversion-list.component';
 import {TimestampComponent} from './timestamp/timestamp.component';
+import { CreateConversionComponent } from './create-conversion/create-conversion.component';
 
 const routes: Routes = [
     {path: '', redirectTo: '/conv', pathMatch: 'full'},
-    {path: 'conv', component: ConversionComponent}
+    {path: 'conv', component: ConversionComponent},
+    {path: 'create', component: CreateConversionComponent}
 ];
 
 @NgModule({
@@ -19,7 +21,8 @@ const routes: Routes = [
         AppComponent,
         ConversionComponent,
         ConversionListComponent,
-        TimestampComponent
+        TimestampComponent,
+        CreateConversionComponent
     ],
     imports: [
         BrowserModule,

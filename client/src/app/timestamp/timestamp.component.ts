@@ -3,7 +3,8 @@ import {ConversionService} from '../conversion.service';
 
 @Component({
     selector: 'app-timestamp',
-    templateUrl: './timestamp.component.html'
+    templateUrl: './timestamp.component.html',
+    providers: [ConversionService]
 })
 export class TimestampComponent implements OnInit {
 
@@ -13,7 +14,7 @@ export class TimestampComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.refreshTimestamp();
+        this.getTimestamp();
     }
 
     refreshTimestamp(): void {
@@ -21,6 +22,12 @@ export class TimestampComponent implements OnInit {
             this.conversionService.getTimestamp().subscribe((ts) => {
                 this.ratesTimestamp = ts;
             });
+        });
+    }
+
+    getTimestamp() {
+        this.conversionService.getTimestamp().subscribe((ts) => {
+            this.ratesTimestamp = ts;
         });
     }
 }
