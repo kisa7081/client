@@ -1,43 +1,12 @@
-import { Component } from '@angular/core';
-import { ConversionService } from './conversion.service';
+import {Component} from '@angular/core';
 
 @Component({
     selector: 'app-root',
-    templateUrl: './app.component.html',
-    providers: [ConversionService]
+    templateUrl: './app.component.html'
 })
 export class AppComponent {
-    title = 'project';
+    title = 'Currency Converter';
 
-    constructor(private conversionService: ConversionService ) {
+    constructor() {
     }
-
-    conversionList = null;
-    ratesTimestamp = null;
-
-    ngOnInit() {
-        this.handleRefresh();
-    }
-
-    handleRefresh() {
-        this.conversionService.listConversions().subscribe((convs) => {
-            this.conversionList = convs;
-            this.conversionService.getTimestamp().subscribe((ts) => {
-                this.ratesTimestamp = ts;
-            });
-        });
-    }
-
-    deleteAll() {
-        this.conversionService.deleteAll().subscribe(() => {
-            this.handleRefresh();
-        });
-    }
-
-    refreshRates() {
-        this.conversionService.refreshRates().subscribe(() => {
-            this.handleRefresh();
-        });
-    }
-
 }

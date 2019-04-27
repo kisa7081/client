@@ -1,0 +1,15 @@
+<section>
+    <header>
+        <h1 id='title' class="alert-danger border-bottom border-dark">
+            Currency Converter
+        </h1>
+        <p id='info' class="alert-success  border-top border-bottom border-dark">
+            Currency conversion rates are current as of:
+            <br>
+            {{ ratesTimestamp }}
+            <br>
+            <button type='button' class="btn btn-info m-2" (click)="refreshTimestamp()">Refresh rates</button>
+        </p>
+    </header>
+</section>
+<hr>

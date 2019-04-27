@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row alert-info border border-dark font-weight-bold">
+        <div class="col">
+            Source Amount
+        </div>
+        <div class="col">
+            Source Currency
+        </div>
+        <div class="col">
+            Target Currency
+        </div>
+        <div class="col">
+            Rate
+        </div>
+        <div class="col">
+            Converted Amount
+        </div>
+        <div class="col">
+            Time
+        </div>
+        <div class="col">
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col">
+            {{ conversion.sourceAmount }}
+        </div>
+        <div class="col">
+            {{ conversion.sourceCurrency }}
+        </div>
+        <div class="col">
+            {{ conversion.targetCurrency }}
+        </div>
+        <div class="col">
+            <form #form="ngForm" (ngSubmit)="updateConversion(form.value)">
+                <input #rate name="rate" class="form-control m-2" [ngModel]="conversion.rate">
+                <button type='submit' class="btn btn-success m-2">Update</button>
+            </form>
+        </div>
+        <div class="col">
+            {{ conversion.convertedAmount }}
+        </div>
+        <div class="col">
+            {{ conversion.timeStamp }}
+        </div>
+        <div class="col">
+            <button type='button' class="btn btn-dark m-2 form-control" (click)="deleteConversion()">Delete</button>
+        </div>
+    </div>
+</div>

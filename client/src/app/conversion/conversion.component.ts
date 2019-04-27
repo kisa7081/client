@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ConversionService } from '../conversion.service';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {ConversionService} from '../conversion.service';
 
 @Component({
     selector: 'app-conversion',
@@ -8,24 +8,29 @@ import { ConversionService } from '../conversion.service';
 })
 export class ConversionComponent implements OnInit {
 
-    @Input() conversion;
-    @Output() refreshEvent = new EventEmitter();
+    conversionList = null;
+    ratesTimestamp = null;
+    @Output() refreshTimestampEvent = new EventEmitter();
 
-    constructor(private conversionService: ConversionService ) { }
+    constructor(private conversionService: ConversionService) {
+    }
 
     ngOnInit() {
+        this.handleListRefresh();
     }
-    updateConversion( obj: any ): void {
-        this.conversion.rate = obj.rate;
-        this.conversionService.updateConversion(this.conversion).subscribe((result) => {
-            console.log(result);
-            this.conversion = result;
+
+    handleListRefresh() {
+        this.conversionService.listConversions().subscribe((convs) => {
+            this.conversionList = convs;
+            this.conversionService.getTimestamp().subscribe((ts) => {
+                this.ratesTimestamp = ts;
+            });
         });
     }
 
-    deleteConversion(): void {
-        this.conversionService.deleteConversion(this.conversion._id).subscribe(() => {
-            this.refreshEvent.emit();
+    deleteAll() {
+        this.conversionService.deleteAll().subscribe(() => {
+            this.handleListRefresh();
         });
     }
 }
