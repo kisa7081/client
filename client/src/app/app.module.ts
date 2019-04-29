@@ -11,8 +11,8 @@ import {TimestampComponent} from './timestamp/timestamp.component';
 import { CreateConversionComponent } from './create-conversion/create-conversion.component';
 
 const routes: Routes = [
-    {path: '', redirectTo: '/conv', pathMatch: 'full'},
-    {path: 'conv', component: ConversionComponent},
+    {path: '', redirectTo: '/', pathMatch: 'full'},
+    {path: '', component: ConversionComponent},
     {path: 'create', component: CreateConversionComponent}
 ];
 
