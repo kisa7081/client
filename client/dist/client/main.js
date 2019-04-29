@@ -377,7 +377,7 @@ var CreateConversionComponent = /** @class */ (function () {
     CreateConversionComponent.prototype.createConversion = function (cur) {
         var _this = this;
         this.conversionService.createConversion(cur.value).subscribe(function () {
-            _this.router.navigate(['/conv']);
+            _this.router.navigate(['/']);
         });
     };
     CreateConversionComponent.prototype.createArrayFromObject = function (currObj) {

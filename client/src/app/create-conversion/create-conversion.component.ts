@@ -23,7 +23,7 @@ export class CreateConversionComponent implements OnInit {
 
     createConversion(cur: any): void {
         this.conversionService.createConversion(cur.value).subscribe(() => {
-            this.router.navigate(['/conv']);
+            this.router.navigate(['/']);
         });
     }
 
